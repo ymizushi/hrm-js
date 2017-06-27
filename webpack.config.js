@@ -5,5 +5,9 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'hrm.bundle.js'
+  },
+  devServer: {
+    contentBase: 'dist',
+    port: 3000
   }
 };

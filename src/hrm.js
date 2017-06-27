@@ -1,4 +1,4 @@
-// import _ from 'lodash';
+import Game from './game'
 
 class Machine {
   constructor(registers, inputs) {
@@ -95,18 +95,27 @@ class Command {
   }
 }
 
-let commands = [
-  new Command(MnemonicType.inbox, null),
-  new Command(MnemonicType.copyto, 0),
-  new Command(MnemonicType.add, 0),
-  new Command(MnemonicType.add, 0),
-  new Command(MnemonicType.add, 0),
-  new Command(MnemonicType.add, 0),
-  new Command(MnemonicType.outbox, null)
-];
 
-let registers = [null, null, null, null];
-let inputs = [2, 3, 5];
+class HRM {
+  static run() {
+    let commands = [
+      new Command(MnemonicType.inbox, null),
+      new Command(MnemonicType.copyto, 0),
+      new Command(MnemonicType.add, 0),
+      new Command(MnemonicType.add, 0),
+      new Command(MnemonicType.add, 0),
+      new Command(MnemonicType.add, 0),
+      new Command(MnemonicType.outbox, null)
+    ];
+    
+    let registers = [null, null, null, null];
+    let inputs = [2, 3, 5];
+    
+    let machine = new Machine(registers, inputs);
+    machine.run(commands);
+    let game = new Game();
+    game.init();
+  }
+};
 
-let machine = new Machine(registers, inputs);
-machine.run(commands);
+HRM.run();
