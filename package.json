@@ -1,0 +1,22 @@
+{
+  "name": "hrm-js",
+  "version": "1.0.0",
+  "description": "The clone of the \"Human Resource Machine\" with JavaScript.",
+  "main": "webpack.config.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "mocha": "^3.4.2",
+    "webpack": "^3.0.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

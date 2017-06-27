@@ -1,3 +1,5 @@
+// import _ from 'lodash';
+
 class Machine {
   constructor(registers, inputs) {
     this.registers = registers
