@@ -1,12 +1,15 @@
 import _ from './crafty'
 
-class Game {
-  constructor() {
-  }
+export class Game {
+    constructor() {
+    }
 
-  init() {
-    Crafty.init(500,350, document.getElementById('game'));
-    Crafty.e('2D, DOM, Color').attr({x: 0, y: 0, w: 100, h: 100}).color('#F00');
-  }
+    init() {
+        Crafty.init(640, 360, document.getElementById('game'));
+        Crafty.e('2D, Tween, Canvas, Color, Fourway')
+            .attr({x: 20, y: 100, w: 50, h: 200})
+            .tween({x: 200, y: 200}, 1000)
+            .color('#8e2622')
+            .fourway(400);
+    }
 }
-export default Game;
