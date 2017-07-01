@@ -4,19 +4,17 @@ The clone of the "Human Resource Machine" with JavaScript.
 
 Try hrm.js
 
-
-# Setup
+## Setup
 ```sh
 npm install
 ```
 
-
-# run dev server
+## run dev server
 ```sh
-webpack-dev-server
+npm dev-server
 ```
 
-# test
+## test
 ```sh
 npm test
 ```

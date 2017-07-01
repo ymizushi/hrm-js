@@ -18,7 +18,8 @@
     "webpack-dev-server": "^2.5.0"
   },
   "scripts": {
-    "test": "mocha --compilers js:babel-register"
+    "test": "mocha --compilers js:babel-register",
+    "dev-server": "webpack-dev-server"
   },
   "keywords": [],
   "author": "",
