@@ -7,11 +7,14 @@ export class Machine {
     }
 
     run(commands) {
+        let outputs = []
         while (true) {
-            commands[this.pc].exec(this);
+            let output = commands[this.pc].exec(this);
+            if (output) {
+                outputs.push(output);
+            }
             if (commands.length - 1 < this.pc) {
-                console.log("exit");
-                return;
+                return outputs;
             }
         }
     }
@@ -50,10 +53,10 @@ export class Command {
                 machine.pc += 1;
                 break;
             case MnemonicType.outbox:
-                console.log(machine.working_register);
+                let output = machine.working_register;
                 machine.working_register = null;
                 machine.pc += 1;
-                break;
+                return output;
             case MnemonicType.copyfrom:
                 machine.working_register = machine.registers[this.operand];
                 machine.pc += 1;

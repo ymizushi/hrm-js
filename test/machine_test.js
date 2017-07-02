@@ -20,8 +20,10 @@ describe('Machine', function () {
             let inputs = [1, 2, 3];
 
             let machine = new Machine(registers, inputs);
-            machine.run(commands);
-            assert.equal(10, machine.pc);
+            let outputs = machine.run(commands);
+            assert.equal(7, outputs[0]);
+            assert.equal(2, outputs[1]);
+            assert.equal(3, outputs[2]);
         });
     });
 });
