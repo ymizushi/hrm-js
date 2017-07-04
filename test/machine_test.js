@@ -43,7 +43,6 @@ describe('Machine', function () {
 
             let machine = new Machine(registers, inputs, outputCount);
             let outputs = machine.run(commands);
-            console.log(outputs);
             assert.equal(7, outputs[0]);
             assert.equal(-7, outputs[1]);
             assert.equal(-2, outputs[2]);

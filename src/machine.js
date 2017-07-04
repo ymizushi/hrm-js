@@ -49,8 +49,6 @@ export class Command {
     }
 
     exec(machine) {
-        console.log(machine);
-        console.log(this);
         switch (this.mnemonic) {
             case MnemonicType.inbox:
                 machine.working_register = machine.inputs.shift();
@@ -60,65 +58,64 @@ export class Command {
                 let output = machine.working_register;
                 machine.working_register = null;
                 machine.pc++;
-                console.log(output);
                 return output;
             case MnemonicType.copyfrom:
                 machine.working_register = machine.registers[this.operand];
                 machine.pc += 1;
-                break;
+                return null;
             case MnemonicType.pCopyfrom:
                 var pointer = machine.registers[this.operand];
                 machine.working_register = machine.registers[pointer];
                 machine.pc += 1;
-                break;
+                return null;
             case MnemonicType.copyto:
                 machine.registers[this.operand] = machine.working_register;
                 machine.pc += 1;
-                break;
+                return null;
             case MnemonicType.pCopyto:
                 var pointer = machine.registers[this.operand];
                 machine.registers[pointer] = machine.working_register;
                 machine.pc += 1;
-                break;
+                return null;
             case MnemonicType.add:
                 machine.working_register = machine.working_register + machine.registers[this.operand];
                 machine.pc += 1;
-                break;
+                return null;
             case MnemonicType.pAdd:
                 var pointer = machine.registers[this.operand];
                 machine.working_register = machine.working_register + machine.registers[pointer];
                 machine.pc += 1;
-                break;
+                return null;
             case MnemonicType.sub:
                 machine.working_register = machine.working_register - machine.registers[this.operand];
                 machine.pc += 1;
-                break;
+                return null;
             case MnemonicType.pSub:
                 var pointer = machine.registers[this.operand];
                 machine.working_register = machine.working_register - machine.registers[pointer];
                 machine.pc += 1;
-                break;
+                return null;
             case MnemonicType.bumpPlus:
                 machine.registers[this.operand] += 1;
                 machine.pc += 1;
                 machine.working_registera = machine.registers[this.operand];
-                break;
+                return null;
             case MnemonicType.pBumpPlus:
                 var pointer = machine.registers[this.operand];
                 machine.registers[pointer] += 1;
                 machine.working_register = machine.registers[pointer];
                 machine.pc += 1;
-                break;
+                return null;
             case MnemonicType.bumpMinus:
                 machine.registers[this.operand] -= 1;
                 machine.pc += 1;
-                break;
+                return null;
             case MnemonicType.pBumpMinus:
                 var pointer = machine.registers[this.operand];
                 machine.registers[pointer] -= 1;
                 machine.working_register = machine.registers[pointer];
                 machine.pc += 1;
-                break;
+                return null;
             case MnemonicType.jump:
                 machine.pc = this.operand;
                 return null;
@@ -128,14 +125,15 @@ export class Command {
                 } else {
                     machine.pc += 1;
                 }
-                break;
+                return null;
             case MnemonicType.jumpIfNeg:
                 if (machine.working_register < 0) {
                     machine.pc = this.operand;
                 } else {
                     machine.pc += 1;
                 }
-                break;
+                return null;
         }
+        throw "UnknownMnemonic";
     }
 }
