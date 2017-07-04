@@ -4,7 +4,7 @@ the emulator of "Human Resource Machine" with JavaScript.
 
 # Usage
 
-See (test code)[https://github.com/ymizushi/hrm-js/tree/master/test/machine_test.js]
+See [test code](https://github.com/ymizushi/hrm-js/tree/master/test/machine_test.js)
 
 ## Setup
 ```sh
