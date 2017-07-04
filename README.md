@@ -1,6 +1,7 @@
 # hrm.js
-
+![master](https://travis-ci.org/ymizushi/hrm-js.svg?branch=master)
 the emulator of "Human Resource Machine" with JavaScript.
+
 
 # Usage
 
