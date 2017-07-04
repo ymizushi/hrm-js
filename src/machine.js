@@ -1,19 +1,21 @@
 export class Machine {
-    constructor(registers, inputs) {
-        this.registers = registers
+    constructor(registers, inputs, outputCount) {
+        this.registers = registers;
         this.inputs = inputs;
         this.pc = 0;
         this.working_register = null;
+        this.outputCount = outputCount;
     }
 
     run(commands) {
         let outputs = []
         while (true) {
-            let output = commands[this.pc].exec(this);
-            if (output) {
+            let currentCommand = commands[this.pc];
+            let output = currentCommand.exec(this);
+            if (output != null || output != undefined) {
                 outputs.push(output);
             }
-            if (commands.length - 1 < this.pc) {
+            if (outputs.length == this.outputCount) {
                 return outputs;
             }
         }
@@ -47,15 +49,18 @@ export class Command {
     }
 
     exec(machine) {
+        console.log(machine);
+        console.log(this);
         switch (this.mnemonic) {
             case MnemonicType.inbox:
                 machine.working_register = machine.inputs.shift();
-                machine.pc += 1;
-                break;
+                machine.pc++;
+                return null;
             case MnemonicType.outbox:
                 let output = machine.working_register;
                 machine.working_register = null;
-                machine.pc += 1;
+                machine.pc++;
+                console.log(output);
                 return output;
             case MnemonicType.copyfrom:
                 machine.working_register = machine.registers[this.operand];
@@ -116,7 +121,7 @@ export class Command {
                 break;
             case MnemonicType.jump:
                 machine.pc = this.operand;
-                break;
+                return null;
             case MnemonicType.jumpIfZero:
                 if (machine.working_register == 0) {
                     machine.pc = this.operand;

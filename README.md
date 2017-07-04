@@ -1,20 +1,22 @@
 # hrm.js
 
-The clone of the "Human Resource Machine" with JavaScript.
+the emulator of "Human Resource Machine" with JavaScript.
 
-Try hrm.js
+# Usage
+
+See (test code)[https://github.com/ymizushi/hrm-js/tree/master/test/machine_test.js]
 
 ## Setup
 ```sh
 npm install
 ```
 
-## run dev server
+## Run dev server
 ```sh
 npm dev-server
 ```
 
-## test
+## Run test
 ```sh
 npm test
 ```
