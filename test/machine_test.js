@@ -38,7 +38,7 @@ describe('Machine', function () {
                 new Command(MnemonicType.jump, 0),
             ];
             let registers = [null, null, null];
-            let inputs = [1, 8, 4, 2 ,-8, -8, 6, -2];
+            let inputs = [1, 8, 4, 2, -8, -8, 6, -2];
             let outputCount = 8;
 
             let machine = new Machine(registers, inputs, outputCount);
