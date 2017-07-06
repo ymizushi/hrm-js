@@ -1,9 +1,13 @@
 # hrm.js
 ![master](https://travis-ci.org/ymizushi/hrm-js.svg?branch=master)
 
+The emulator of "Human Resource Machine" with JavaScript.
 
-the emulator of "Human Resource Machine" with JavaScript.
+["Human Resource Machine"](https://tomorrowcorporation.com/humanresourcemachine) is the programming game with Assembly Language
 
+# Goal of repository
+
+Distribution of emulator, debugging tool, compiler.
 
 # Usage
 
