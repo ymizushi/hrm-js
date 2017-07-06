@@ -98,7 +98,7 @@ export class Command {
             case MnemonicType.bumpPlus:
                 machine.registers[this.operand] += 1;
                 machine.pc += 1;
-                machine.working_registera = machine.registers[this.operand];
+                machine.working_register = machine.registers[this.operand];
                 return null;
             case MnemonicType.pBumpPlus:
                 var pointer = machine.registers[this.operand];
