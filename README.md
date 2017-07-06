@@ -18,9 +18,14 @@ See [test code](https://github.com/ymizushi/hrm-js/tree/master/test/machine_test
 npm install
 ```
 
+## Build bundle
+```sh
+npm run build
+```
+
 ## Run dev server
 ```sh
-npm dev-server
+npm run dev-server
 ```
 
 ## Run test

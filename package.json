@@ -19,7 +19,8 @@
   },
   "scripts": {
     "test": "mocha --compilers js:babel-register",
-    "dev-server": "webpack-dev-server"
+    "dev-server": "webpack-dev-server",
+    "build": "webpack"
   },
   "keywords": [],
   "author": "",
