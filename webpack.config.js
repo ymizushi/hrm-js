@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    entry: './src/hrm.js',
+    entry: './src/machine.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'hrm.bundle.js'
