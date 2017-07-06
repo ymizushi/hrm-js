@@ -23,28 +23,6 @@ describe('Machine', function () {
         });
 
 
-        it('add', () => {
-            let commands = [
-                new Command(MnemonicType.inbox, null),
-                new Command(MnemonicType.copyto, 0),
-                new Command(MnemonicType.inbox, null),
-                new Command(MnemonicType.copyto, 1),
-                new Command(MnemonicType.sub, 0),
-                new Command(MnemonicType.outbox, null),
-                new Command(MnemonicType.copyfrom, 0),
-                new Command(MnemonicType.sub, 1),
-                new Command(MnemonicType.outbox, null),
-                new Command(MnemonicType.jump, 0),
-            ];
-            let registers = [null, null, null];
-            let inputs = [1, 8, 4, 2, -8, -8, 6, -2];
-            let outputCount = 8;
-
-            let machine = new Machine(registers, inputs, outputCount);
-            let outputs = machine.run(commands);
-            assert.deepEqual([7, -7, -2, 2, 0, 0, -8, 8], outputs);
-        });
-
         it('sub', () => {
             let commands = [
                 new Command(MnemonicType.inbox, null),
