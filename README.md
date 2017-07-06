@@ -5,7 +5,7 @@ The emulator of "Human Resource Machine" with JavaScript.
 
 ["Human Resource Machine"](https://tomorrowcorporation.com/humanresourcemachine) is the programming game with Assembly Language
 
-# Goal of repository
+# Goal
 
 Distribution of emulator, debugging tool, compiler.
 
