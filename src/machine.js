@@ -42,6 +42,10 @@ export const MnemonicType = {
     jumpIfNeg: Symbol()
 }
 
+function convertToInt(str) {
+    return str.charCodeAt(0);
+}
+
 export class Command {
     constructor(mnemonic, operand) {
         this.mnemonic = mnemonic;
@@ -87,7 +91,11 @@ export class Command {
                 machine.pc += 1;
                 return null;
             case MnemonicType.sub:
-                machine.working_register = machine.working_register - machine.registers[this.operand];
+                if (typeof machine.working_register == 'string') {
+                    machine.working_register = convertToInt(machine.working_register)  - convertToInt(machine.registers[this.operand]);
+                } else {
+                    machine.working_register = machine.working_register - machine.registers[this.operand];
+                }
                 machine.pc += 1;
                 return null;
             case MnemonicType.pSub:

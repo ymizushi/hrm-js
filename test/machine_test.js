@@ -77,6 +77,44 @@ describe('Machine', function () {
             let outputs = machine.run(commands);
             assert.deepEqual(["T", "I", "S", "E", "Y", "L", "O", "O", "T"], outputs);
         });
+
+        it('exclude vowel', () => {
+            let commands = [
+                new Command(MnemonicType.copyfrom, 5),
+                new Command(MnemonicType.copyto, 7),
+                new Command(MnemonicType.copyto, 8),
+                new Command(MnemonicType.inbox, null),
+                new Command(MnemonicType.copyto, 6),
+                new Command(MnemonicType.pCopyfrom, 7),
+                new Command(MnemonicType.jumpIfZero, 14),
+                new Command(MnemonicType.sub, 6),
+                new Command(MnemonicType.jumpIfZero, 11),
+                new Command(MnemonicType.bumpPlus, 7),
+                new Command(MnemonicType.jump, 5),
+                new Command(MnemonicType.bumpPlus, 8),
+                new Command(MnemonicType.bumpPlus, 7),
+                new Command(MnemonicType.jump, 5),
+                new Command(MnemonicType.copyfrom, 8),
+                new Command(MnemonicType.jumpIfZero, 17),
+                new Command(MnemonicType.jump, 0),
+                new Command(MnemonicType.copyfrom, 6),
+                new Command(MnemonicType.outbox, null),
+                new Command(MnemonicType.jump, 0),
+            ];
+            let registers = [
+                "A", "E", "I", "O", "U",
+                0, null, null, null, null,
+            ];
+            let inputs = [
+                "M", "E", "O", "I", "L", "M", "A", "N", "Y",
+            ];
+            let outputCount = 5;
+
+            let machine = new Machine(registers, inputs, outputCount);
+            let outputs = machine.run(commands);
+            assert.deepEqual(["M", "L", "M", "N", "Y"], outputs);
+        });
+
     });
 });
 
